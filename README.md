@@ -1,79 +1,124 @@
 # Enterprise Order Management System
 
-A full-stack enterprise-style Order Management System built using **Angular** and **ASP.NET Core Web API**, focusing on secure authentication, role-based authorization, and clean architecture.
+A full-stack enterprise web application built with **Angular** and **ASP.NET Core Web API**, 
+featuring **JWT authentication**, **role-based access**, and **secure REST APIs**.
 
----
+## 🛠 Tech Stack
 
-## 🚀 Tech Stack
-- **Frontend**: Angular (Standalone Components)
-- **Backend**: ASP.NET Core Web API
-- **Database**: SQLite
-- **Authentication**: JWT (JSON Web Tokens)
-- **Authorization**: Role-based (Admin / User)
-- **Tools**: GitHub, Swagger, VS Code
+### Frontend
+- Angular (Standalone Components)
+- TypeScript
+- HTML, CSS
 
----
+### Backend
+- ASP.NET Core Web API
+- Entity Framework Core
+- JWT Authentication
 
-## 🔐 Key Features
+### Database
+- SQLite (easily switchable to SQL Server)
+
+### Tools & Practices
+- RESTful APIs
+- Swagger API Documentation
+- Secure Password Hashing (BCrypt)
+- Clean Architecture
+
+## ✨ Features
+
+### Authentication & Security
 - User Registration & Login
 - JWT-based Authentication
-- Role-Based Authorization (Admin/User)
-- Secured REST APIs
-- Product Management APIs
-- CORS configuration for frontend-backend communication
-- Clean separation of concerns (Controllers, Services, Models)
+- Secure password hashing using BCrypt
+- Protected APIs using Authorization
 
----
+### Product Management
+- Create, Read, Update, Delete (CRUD) Products
+- Secure access to product APIs
+- Entity Framework Core with SQL database
 
-## 👥 Roles & Access
-| Role  | Permissions |
-|------|------------|
-| Admin | Create, Update, Delete Products |
-| User  | View Products |
+### Frontend (Angular)
+- Login page with authentication
+- JWT stored securely in browser
+- Automatic token attachment using HTTP Interceptor
+- Product list view after authentication
 
----
+### API Documentation
+- Swagger UI for testing and documentation
 
-## 📌 Project Highlights
-- Implemented secure JWT authentication with token validation
-- Enforced role-based access control using ASP.NET Core authorization
-- Designed APIs following REST best practices
-- Integrated Angular frontend with secured backend APIs
-- Handled real-world issues like CORS, token expiration, and interceptor configuration
+## 🏗 Project Architecture
 
----
+enterprise-order-management
+│
+├── OrderManagement.API        # ASP.NET Core Backend
+│   ├── Controllers
+│   ├── Models
+│   ├── Data
+│   ├── Program.cs
+│
+├── order-management-ui        # Angular Frontend
+│   ├── auth
+│   ├── products
+│   ├── core
+│   ├── app.config.ts
+│
+└── README.md
 
-## 🛠️ How to Run the Project
+## 🔗 API Endpoints
 
-### 🖥️ Backend (ASP.NET Core Web API)
+### Authentication
+- POST `/api/auth/register` – Register a new user
+- POST `/api/auth/login` – Login and receive JWT token
+
+### Products (Protected)
+- GET `/api/products`
+- POST `/api/products`
+- PUT `/api/products/{id}`
+- DELETE `/api/products/{id}`
+
+## 🚀 How to Run the Project
+
+### Backend (.NET API)
+
+```bash
 cd OrderManagement.API
 dotnet run
 
-The API runs on: http://localhost:5118
+Swagger UI:
+http://localhost:5118/swagger
 
-### 🖥️ Frontend (Angular)
+Frontend (Angular)
 cd order-management-ui
 ng serve
 
-The UI runs on: http://localhost:4200
+Application URL:
+http://localhost:4200
 
-⚠️ Known Limitations
-* Product list UI rendering has a minor issue related to authorization state handling.
-* Backend APIs are fully functional and secured.
-* UI refactoring and state optimization planned as a future enhancement.
+---
 
+## 🔐 Authentication Flow
 
-📌 Future Enhancements
-* Improve UI state management and rendering
-* Add Order workflow (Create Order, Order Status, History)
-* Improve UI styling and UX
-* Deploy application to a cloud environment
+1. User logs in using Angular UI
+2. Backend validates credentials
+3. JWT token is generated and returned
+4. Token is stored in browser (localStorage)
+5. Angular HTTP Interceptor attaches JWT to requests
+6. Protected APIs validate JWT before allowing access
 
-👩‍💻 Author
-Aparna Gurav
-Full Stack Developer
-Angular | ASP.NET Core
+## 📌 Future Enhancements
 
+- Role-based access control (Admin/User)
+- Product search & pagination
+- Angular route guards
+- Docker containerization
+- Deployment to Azure / AWS
 
-📎 About This Repository
-This project is part of my professional portfolio and demonstrates my ability to build, secure, and integrate full-stack applications suitable for enterprise and international development environments.
+## 👩‍💻 About Me
 
+I am a Full-Stack Developer with experience in building secure, scalable web applications 
+using Angular and ASP.NET Core. I am actively seeking full-stack opportunities in Finland and Europe.
+
+## Known Issue
+- Product list UI rendering has a minor issue related to authorization token handling.
+- Backend APIs are fully functional and secured.
+- This is a UI-layer issue planned for refactoring.

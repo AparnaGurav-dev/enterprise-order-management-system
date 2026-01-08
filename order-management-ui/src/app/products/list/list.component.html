@@ -1,0 +1,13 @@
+<h2>Products</h2>
+
+<p><strong>Products count:</strong> {{ products.length }}</p>
+
+<ul>
+  <li *ngFor="let p of products">
+    {{ p.name }} - {{ p.price }}
+  </li>
+</ul>
+
+<p *ngIf="products.length === 0">
+  No products found
+</p>
