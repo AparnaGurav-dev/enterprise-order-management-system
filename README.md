@@ -80,21 +80,18 @@ enterprise-order-management
 
 ### Backend (.NET API)
 
-```bash
 cd OrderManagement.API
 dotnet run
 
 Swagger UI:
 http://localhost:5118/swagger
 
-Frontend (Angular)
+### Frontend (Angular)
 cd order-management-ui
 ng serve
 
-Application URL:
+### Application URL:
 http://localhost:4200
-
----
 
 ## 🔐 Authentication Flow
 
